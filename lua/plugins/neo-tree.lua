@@ -9,27 +9,27 @@ return {
     },
     config = function()
       require("neo-tree").setup({
-      default_component_configs = {
-        git_status = {
-          symbols = {
-            -- Change type
-            added     = "✚",
-            deleted   = "✖",
-            modified  = "",
-            renamed   = "󰁕",
-            -- Status type
-            untracked = "",
-            ignored   = "",
-            unstaged  = "󰄱",
-            staged    = "",
-            conflict  = "",
-          }
-        }
-      }
-    })
-      vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
-      vim.keymap.set('n', '<leader>-e', ':Neotree filesystem focus left<CR>', {})
-    end
+        default_component_configs = {
+          git_status = {
+            symbols = {
+              -- Change type
+              added = "✚",
+              deleted = "✖",
+              modified = "",
+              renamed = "󰁕",
+              -- Status type
+              untracked = "",
+              ignored = "",
+              unstaged = "󰄱",
+              staged = "",
+              conflict = "",
+            },
+          },
+        },
+      })
+      vim.keymap.set("n", "<C-n>", ":Neotree filesystem toggle left<CR>", {})
+      vim.keymap.set("n", "<leader>e", ":Neotree  focus<CR>", {})
+    end,
   },
   {
     "DaikyXendo/nvim-material-icon",
@@ -40,8 +40,8 @@ return {
             icon = "",
             color = "#428850",
             cterm_color = "65",
-            name = "Zsh"
-          }
+            name = "Zsh",
+          },
         },
         -- globally enable different highlight colors per icon (default to true)
         -- if set to false all icons will have the default icon's color
@@ -50,6 +50,6 @@ return {
         -- will get overriden by `get_icons` option
         default = true,
       })
-    end
-  }
+    end,
+  },
 }
