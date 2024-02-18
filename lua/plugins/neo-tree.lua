@@ -9,8 +9,24 @@ return {
     },
     config = function()
       require("neo-tree").setup({
-        enable_git_status = true,
-      })
+      default_component_configs = {
+        git_status = {
+          symbols = {
+            -- Change type
+            added     = "✚",
+            deleted   = "✖",
+            modified  = "",
+            renamed   = "󰁕",
+            -- Status type
+            untracked = "",
+            ignored   = "",
+            unstaged  = "󰄱",
+            staged    = "",
+            conflict  = "",
+          }
+        }
+      }
+    })
       vim.keymap.set('n', '<C-n>', ':Neotree filesystem toggle left<CR>', {})
       vim.keymap.set('n', '<leader>-e', ':Neotree filesystem focus left<CR>', {})
     end

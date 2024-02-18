@@ -37,7 +37,7 @@ return {
 		}
 
 		local function footer()
-			return "Java Scvirt"
+			return "Java Squirt"
 		end
 
 		dashboard.section.footer.val = footer()
