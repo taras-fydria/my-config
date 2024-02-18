@@ -5,6 +5,6 @@ return {
       options = {
         theme = 'dracula'
       }}
-    )  
+    )
   end
 }
