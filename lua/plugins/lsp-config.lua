@@ -16,17 +16,22 @@ return {
 	},
 	{
 		"neovim/nvim-lspconfig",
-
+		opts = {
+			inliy_hints = { enable = true },
+		},
 		config = function()
-			local capabilities = require('cmp_nvim_lsp').default_capabilities()
+			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      local lspconfig = require("lspconfig")
-
+			local lspconfig = require("lspconfig")
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
 
 			lspconfig.tsserver.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.jsonls.setup({
 				capabilities = capabilities,
 			})
 
