@@ -33,6 +33,6 @@ return {
 
 		vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", {})
 		vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", {})
-	  vim.keymap.set("n", "<leader>-q", ":q<CR>", {}) 
-  end,
+		vim.keymap.set("n", "<leader>-q", ":q<CR>", {})
+	end,
 }
