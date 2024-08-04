@@ -9,7 +9,7 @@ return {
       opts = { history = true, updateevents = "TextChanged,TextChangedI" },
       config = function(_, opts)
         require("luasnip").config.set_config(opts)
-        require "nvchad.configs.luasnip"
+        require "lua.configs.luasnip"
       end,
     },
 
@@ -39,6 +39,6 @@ return {
     },
   },
   opts = function()
-    return require "nvchad.configs.cmp"
+    return require "configs.cmp"
   end,
 }
