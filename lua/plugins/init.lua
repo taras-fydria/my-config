@@ -1,6 +1,6 @@
 return {
 	--UI
-	-- require("plugins.alpha-nvim"),
+	require("alpha-nvim"),
 	require("plugins.bufferline"),
 	require("lualine"),
 	require("neo-tree"),
@@ -12,7 +12,7 @@ return {
 	-- Editor stuff
 	require("plugins.comments"),
 	require("treesitter"),
-
+	require("none-ls"),
 	-- Additional staff
 	require("which-key"),
 }
