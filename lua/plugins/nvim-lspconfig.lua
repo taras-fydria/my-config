@@ -1,7 +1,10 @@
 return {
   "neovim/nvim-lspconfig",
   event = "User FilePost",
+  opts = {
+    inlay_hints = { enabled = true },
+  },
   config = function()
-    require("lua.configs.lspconfig")
+    require "configs.lspconfig"
   end,
 }

@@ -2,6 +2,6 @@ return {
   "nvim-tree/nvim-tree.lua",
   cmd = { "NvimTreeToggle", "NvimTreeFocus" },
   opts = function()
-    return require "lua.configs.nvimtree"
+    return require "configs.nvimtree"
   end,
 }

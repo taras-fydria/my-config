@@ -4,7 +4,23 @@ pcall(function()
 end)
 
 local options = {
-  ensure_installed = { "lua", "luadoc", "printf", "vim", "vimdoc" },
+  ensure_installed = {
+    "lua",
+    "luadoc",
+    "printf",
+    "vim",
+    "vimdoc",
+    "javascript",
+    "typescript",
+    "vue",
+    "css",
+    "scss",
+    "rust",
+    "prisma",
+    "graphql",
+    "yaml",
+    "bash",
+  },
 
   highlight = {
     enable = true,

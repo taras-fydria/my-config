@@ -18,16 +18,17 @@ return {
   -- lsp stuff
   require "plugins.mason",
   require "plugins.nvim-lspconfig",
+  require "plugins.inlay-hints",
 
   -- load luasnips + cmp related in insert mode only
   require "plugins.nvim-cmp",
   require "plugins.telescope",
   require "plugins.nvim-colorizer",
   require "plugins.treesitter",
-
+  require "plugins.trouble",
   -- {
-    -- "stevearc/conform.nvim",
-    -- event = 'BufWritePre', -- uncomment for format on save
+  -- "stevearc/conform.nvim",
+  -- event = 'BufWritePre', -- uncomment for format on save
   --   opts = require "configs.conform",
   -- },
   --

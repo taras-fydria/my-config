@@ -5,10 +5,12 @@ local M = {}
 local map = vim.keymap.set
 
 -- export on_attach & capabilities
-local on_attach = function(_, bufnr)
+local on_attach = function(client, bufnr)
   local function opts(desc)
     return { buffer = bufnr, desc = "LSP " .. desc }
   end
+
+  require("inlay-hints").on_attach(client, bufnr)
 
   map("n", "gD", vim.lsp.buf.declaration, opts "Go to declaration")
   map("n", "gd", vim.lsp.buf.definition, opts "Go to definition")
@@ -40,6 +42,14 @@ end
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 
+local function module_exists(name)
+  if package.searchpath(name, package.path) then
+    return true
+  else
+    return false
+  end
+end
+
 capabilities.textDocument.completion.completionItem = {
   documentationFormat = { "markdown", "plaintext" },
   snippetSupport = true,
@@ -58,53 +68,24 @@ capabilities.textDocument.completion.completionItem = {
   },
 }
 
-  dofile(vim.g.base46_cache .. "lsp")
-  require ("nvchad.lsp").diagnostic_config()
-
-  require("lspconfig").lua_ls.setup {
-    on_attach = on_attach,
-    capabilities = M.capabilities,
-    on_init = M.on_init,
-
-    settings = {
-      Lua = {
-        diagnostics = {
-          globals = { "vim" },
-        },
-        workspace = {
-          library = {
-            vim.fn.expand "$VIMRUNTIME/lua",
-            vim.fn.expand "$VIMRUNTIME/lua/vim/lsp",
-            vim.fn.stdpath "data" .. "/lazy/ui/nvchad_types",
-            vim.fn.stdpath "data" .. "/lazy/lazy.nvim/lua/lazy",
-          },
-          maxPreload = 100000,
-          preloadFileSize = 10000,
-        },
-      },
-    },
-  }
-
-
-
-
+dofile(vim.g.base46_cache .. "lsp")
+require("nvchad.lsp").diagnostic_config()
 
 -- EXAMPLE
-local servers = { "html", "cssls" }
-local nvlsp = require "nvchad.configs.lspconfig"
+local servers = { "html", "cssls", "gitlab_ci_ls", "jsonls", "lua_ls", "tsserver", "rust_analyzer" }
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    on_init = on_init,
-    capabilities = capabilities,
-  }
-end
+  local lsp_config = {}
+  if module_exists("configs.lsp." .. lsp) then
+    lsp_config = require("configs.lsp." .. lsp)
+  else
+    lsp_config = {}
+  end
 
--- configuring single server, example: typescript
--- lspconfig.tsserver.setup {
---   on_attach = nvlsp.on_attach,
---   on_init = nvlsp.on_init,
---   capabilities = nvlsp.capabilities,
--- }
+  lsp_config.on_attach = on_attach
+  lsp_config.on_init = on_init
+  lsp_config.capabilities = capabilities
+
+  lspconfig[lsp].setup(lsp_config)
+end

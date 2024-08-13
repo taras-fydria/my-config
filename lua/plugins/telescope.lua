@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-treesitter/nvim-treesitter" },
   cmd = "Telescope",
   opts = function()
-    return require "lua.configs.telescope"
+    return require "configs.telescope"
   end,
   config = function(_, opts)
     local telescope = require "telescope"
