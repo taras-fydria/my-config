@@ -15,10 +15,16 @@ return {
 		"graphql",
 		"yaml",
 		"bash",
+		"tsx",
 	},
 	sync_install = false,
-	highlight = { enable = true },
-	indent = { enable = true },
+	highlight = {
+		enable = true,
+		use_languagetree = true,
+	},
+	indent = {
+		enable = true,
+	},
 	rainbow = {
 		enable = true,
 		-- disable = { "jsx", "cpp" }, list of languages you want to disable the plugin for

@@ -37,4 +37,4 @@ require("lazy").setup({
 vim.schedule(function()
 	require("mappings")
 end)
-require("config.options")
+require("options")
