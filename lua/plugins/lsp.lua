@@ -11,7 +11,7 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      require("configs.mason-lspconfig")
+      require("configs.mason")
     end,
   },
   {
@@ -20,7 +20,7 @@ return {
       inlay_hints = { enabled = true },
     },
     config = function()
-      require("configs.nvim-lspconfig")
+      require("configs.lsp")
     end,
   },
   {

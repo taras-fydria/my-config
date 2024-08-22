@@ -2,7 +2,7 @@ return {
   {
     "terrortylor/nvim-comment",
     config = function()
-      require("nvim_comment").setup(require("configs.nvim-comment"))
+      require("nvim_comment").setup(require("configs.comment"))
     end,
   },
 }
