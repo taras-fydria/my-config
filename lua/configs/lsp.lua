@@ -41,7 +41,6 @@ local servers = { "html", "cssls", "gitlab_ci_ls", "jsonls", "lua_ls", "ts_ls", 
 
 -- lsps with default config
 for _, lsp in ipairs(servers) do
-  print(lsp)
   local lsp_config = {
     on_attach = on_attach,
     on_init = on_init,
