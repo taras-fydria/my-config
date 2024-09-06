@@ -1,9 +1,12 @@
 return {
   settings = {
     Lua = {
-      hint = {
-        enable = true,
+      runtime = {
+        version = "LuaJIT",
       },
+    hint = {
+      enable = true, -- necessary
+    },
     },
   },
 }

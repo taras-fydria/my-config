@@ -1,8 +1,8 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  dependencies = {
-    "p00f/nvim-ts-rainbow",
-  },
+  -- dependencies = {
+  --   "p00f/nvim-ts-rainbow",
+  -- },
   build = ":TSUpdate",
   config = function()
     local configs = require("nvim-treesitter.configs")
